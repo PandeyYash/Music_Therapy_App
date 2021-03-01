@@ -1,0 +1,22 @@
+{
+	"name": "music_therapy_app",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "concurrently \"cd backend && nodemon server\" \"cd frontend && npm start\" "
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/PandeyYash/Music_Therapy_App.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/PandeyYash/Music_Therapy_App/issues"
+	},
+	"homepage": "https://github.com/PandeyYash/Music_Therapy_App#readme",
+	"devDependencies": {
+		"concurrently": "^6.0.0"
+	}
+}
