@@ -2,7 +2,6 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import { Provider } from "react-redux";
-import Navbar from "./components/navigation/navbar";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import store from "./store";
@@ -10,6 +9,7 @@ import Register from "./components/register";
 import Login from "./components/login";
 import PrivateRoute from "./components/private-route/privateRoute";
 import TherapistDashboard from "./components/therapist/therapistDashboard";
+import LandingPage from "./components/landing/landingPage";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -34,7 +34,7 @@ function App() {
 	return (
 		<Provider store={store}>
 			<Router>
-				<Navbar />
+				<Route exact path='/' component={LandingPage} />
 				<Route exact path='/register' component={Register} />
 				<Route exact path='/login' component={Login} />
 				<Switch>
