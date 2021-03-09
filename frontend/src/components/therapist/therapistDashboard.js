@@ -45,6 +45,9 @@ class TherapistDashboard extends Component {
 				<NavBtnLink to='/add-patient' activeStyle>
 					Add Patient
 				</NavBtnLink>
+				<NavBtnLink to='/call' activeStyle>
+					Call
+				</NavBtnLink>
 			</div>
 		);
 	}

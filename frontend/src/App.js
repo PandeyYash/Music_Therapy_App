@@ -12,6 +12,7 @@ import TherapistDashboard from "./components/therapist/therapistDashboard";
 import LandingPage from "./components/landing/landingPage";
 import AddPatient from "./components/therapist/addPatient";
 import PatientDashboard from "./components/patient/patientDashboard";
+import VideoCall from "./components/videoCall";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -51,6 +52,7 @@ function App() {
 						path='/dashboard-patient'
 						component={PatientDashboard}
 					/>
+					<PrivateRoute exact path='/call' component={VideoCall} />
 				</Switch>
 			</Router>
 		</Provider>
