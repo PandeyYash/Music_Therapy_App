@@ -1,28 +1,28 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
+//import * as FaIcons from "react-icons/fa";
+//import * as AiIcons from "react-icons/ai";
 import { SidebarData } from "./sidebarData";
 import SubMenu from "./subMenu";
 import { IconContext } from "react-icons/lib";
 
-const Nav = styled.div`
-	background: #15171c;
-	height: 80px;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-`;
+// const Nav = styled.div`
+// 	background: #15171c;
+// 	height: 80px;
+// 	display: flex;
+// 	justify-content: flex-start;
+// 	align-items: center;
+// `;
 
-const NavIcon = styled(Link)`
-	margin-left: 2rem;
-	font-size: 2rem;
-	height: 80px;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-`;
+// const NavIcon = styled(Link)`
+// 	margin-left: 2rem;
+// 	font-size: 2rem;
+// 	height: 80px;
+// 	display: flex;
+// 	justify-content: flex-start;
+// 	align-items: center;
+// `;
 
 const SidebarNav = styled.nav`
 	background: #00103c;
@@ -44,7 +44,7 @@ const SidebarWrap = styled.div`
 const Sidebar = () => {
 	const [sidebar, setSidebar] = useState(true);
 
-	const showSidebar = () => setSidebar(!sidebar);
+	//const showSidebar = () => setSidebar(!sidebar);
 
 	return (
 		<>

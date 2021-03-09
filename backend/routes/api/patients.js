@@ -4,19 +4,19 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 
-// Load input validation of Therapist
-const validateRegisterTherapistInput = require("../../validation/registerTherapist");
+// Load input validation
+const validateRegisterPatientInput = require("../../validation/registerPatient");
 const validateLoginInput = require("../../validation/login");
 
 // Load User model
 const User = require("../../models/userModel");
 
-// @route POST api/users/register-therapist
-// @desc Register therapist
+// @route POST api/users/register-patient
+// @desc Register patient
 // @access Public
-router.post("/register-therapist", (req, res) => {
+router.post("/register-patient", (req, res) => {
 	// Form validation
-	const { errors, isValid } = validateRegisterTherapistInput(req.body);
+	const { errors, isValid } = validateRegisterPatientInput(req.body);
 
 	// Check validation
 	if (!isValid) {
@@ -34,7 +34,7 @@ router.post("/register-therapist", (req, res) => {
 				username: req.body.username,
 				email: req.body.email,
 				password: req.body.password,
-				role: "Therapist",
+				role: "Patient",
 				uid: req.body.uid,
 				institution: req.body.institution,
 				therapist: req.body.therapist,

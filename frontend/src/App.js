@@ -10,6 +10,8 @@ import Login from "./components/login";
 import PrivateRoute from "./components/private-route/privateRoute";
 import TherapistDashboard from "./components/therapist/therapistDashboard";
 import LandingPage from "./components/landing/landingPage";
+import AddPatient from "./components/therapist/addPatient";
+import PatientDashboard from "./components/patient/patientDashboard";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -42,6 +44,12 @@ function App() {
 						exact
 						path='/dashboard'
 						component={TherapistDashboard}
+					/>
+					<PrivateRoute exact path='/add-patient' component={AddPatient} />
+					<PrivateRoute
+						exact
+						path='/dashboard-patient'
+						component={PatientDashboard}
 					/>
 				</Switch>
 			</Router>

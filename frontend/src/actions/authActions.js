@@ -6,8 +6,21 @@ import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 // Register User
 export const registerUser = (userData, history) => (dispatch) => {
 	axios
-		.post("/api/users/register", userData)
+		.post("/api/users/register-therapist", userData)
 		.then((res) => history.push("/login")) // re-direct to login on successful register
+		.catch((err) =>
+			dispatch({
+				type: GET_ERRORS,
+				payload: err.response.data,
+			})
+		);
+};
+
+// Register Patient User
+export const registerPatientUser = (userData, history) => (dispatch) => {
+	axios
+		.post("/api/users/register-patient", userData)
+		.then((res) => history.push("/dashboard")) // re-direct to dashboard on successful patient add
 		.catch((err) =>
 			dispatch({
 				type: GET_ERRORS,

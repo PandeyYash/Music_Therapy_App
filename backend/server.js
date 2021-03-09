@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const users = require("./routes/api/users");
 const app = express();
+//const passportPatient = require("passport");
+const patients = require("./routes/api/patients");
 
 // Bodyparser middleware
 app.use(
@@ -24,12 +26,16 @@ mongoose
 
 // Passport middleware
 app.use(passport.initialize());
+//app.use(passportPatient.initialize());
 
 // Passport config
 require("./config/passport")(passport);
+//require("./config/passportPatient")(passportPatient);
 
 // Routes
 app.use("/api/users", users);
+//app.use("/api/patients", patients);
+app.use("/api/users", patients);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () =>

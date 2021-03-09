@@ -6,6 +6,7 @@ module.exports = function validateLoginInput(data) {
 
 	// Convert empty fields to an empty string so we can use validator functions
 	data.email = !isEmpty(data.email) ? data.email : "";
+	data.username = !isEmpty(data.username) ? data.username : "";
 	data.password = !isEmpty(data.password) ? data.password : "";
 
 	// Email checks

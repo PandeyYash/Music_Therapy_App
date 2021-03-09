@@ -51,14 +51,14 @@ const NavMenu = styled.div`
 	}
 `;
 
-const NavBtn = styled.nav`
-	display: flex;
-	align-items: center;
-	margin-left: 24px;
-	@media screen and (max-width: 768px) {
-		display: none;
-	}
-`;
+// const NavBtn = styled.nav`
+// 	display: flex;
+// 	align-items: center;
+// 	margin-left: 24px;
+// 	@media screen and (max-width: 768px) {
+// 		display: none;
+// 	}
+// `;
 
 const NavBtnLink = styled(Link)`
 	border-radius: 4px;
@@ -85,7 +85,7 @@ class LoggedInNavbar extends Component {
 	};
 
 	render() {
-		const { user } = this.props.auth;
+		// const { user } = this.props.auth;
 
 		return (
 			<div>

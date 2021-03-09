@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { registerUser } from "../actions/authActions";
+import { registerPatientUser } from "../../actions/authActions";
 import classnames from "classnames";
 
-class Register extends Component {
+class AddPatient extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -16,15 +16,11 @@ class Register extends Component {
 			email: "",
 			password: "",
 			password2: "",
+			institution: "",
+			therapist: "",
+			notes: "",
 			errors: {},
 		};
-	}
-
-	componentDidMount() {
-		// If logged in and user navigates to Register page, should redirect them to dashboard
-		if (this.props.auth.isAuthenticated) {
-			this.props.history.push("/dashboard");
-		}
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -48,8 +44,11 @@ class Register extends Component {
 			email: this.state.email,
 			password: this.state.password,
 			password2: this.state.password2,
+			institution: this.state.institution,
+			therapist: this.state.therapist,
+			notes: this.state.notes,
 		};
-		this.props.registerUser(newUser, this.props.history);
+		this.props.registerPatientUser(newUser, this.props.history);
 		console.log(newUser);
 	};
 	render() {
@@ -148,6 +147,45 @@ class Register extends Component {
 					/>
 					<span className='red-text'>{errors.password2}</span>
 
+					<label htmlFor='institution'>Institution</label>
+					<input
+						onChange={this.onChange}
+						value={this.state.institution}
+						error={errors.institution}
+						id='institution'
+						type='text'
+						className={classnames("", {
+							invalid: errors.institution,
+						})}
+					/>
+					<span className='red-text'>{errors.institution}</span>
+
+					<label htmlFor='therapist'>Therapist</label>
+					<input
+						onChange={this.onChange}
+						value={this.state.therapist}
+						error={errors.therapist}
+						id='therapist'
+						type='text'
+						className={classnames("", {
+							invalid: errors.therapist,
+						})}
+					/>
+					<span className='red-text'>{errors.therapist}</span>
+
+					<label htmlFor='notes'>Notes</label>
+					<input
+						onChange={this.onChange}
+						value={this.state.notes}
+						error={errors.notes}
+						id='notes'
+						type='text'
+						className={classnames("", {
+							invalid: errors.notes,
+						})}
+					/>
+					<span className='red-text'>{errors.notes}</span>
+
 					<button
 						style={{
 							width: "150px",
@@ -157,7 +195,7 @@ class Register extends Component {
 						}}
 						type='submit'
 					>
-						Sign up
+						Add Patient
 					</button>
 				</form>
 			</div>
@@ -165,8 +203,8 @@ class Register extends Component {
 	}
 }
 
-Register.propTypes = {
-	registerUser: PropTypes.func.isRequired,
+AddPatient.propTypes = {
+	registerPatientUser: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired,
 	errors: PropTypes.object.isRequired,
 };
@@ -176,4 +214,6 @@ const mapStateToProps = (state) => ({
 	errors: state.errors,
 });
 
-export default connect(mapStateToProps, { registerUser })(withRouter(Register));
+export default connect(mapStateToProps, { registerPatientUser })(
+	withRouter(AddPatient)
+);

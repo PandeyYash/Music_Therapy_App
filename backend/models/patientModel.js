@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// Create User Schema
-const UserSchema = new Schema({
+// Create Patient Schema
+const PatientSchema = new Schema({
 	fname: {
 		type: String,
 		required: true,
@@ -33,19 +33,11 @@ const UserSchema = new Schema({
 	},
 	role: {
 		type: String,
-		required: true,
-	},
-	uid: {
-		type: String,
 		required: false,
 	},
 	institution: {
 		type: String,
-		required: false,
-	},
-	therapist: {
-		type: String,
-		required: false,
+		required: true,
 	},
 	notes: {
 		type: String,
@@ -56,4 +48,4 @@ const UserSchema = new Schema({
 		default: Date.now,
 	},
 });
-module.exports = User = mongoose.model("users", UserSchema);
+module.exports = Patient = mongoose.model("patients", PatientSchema);
